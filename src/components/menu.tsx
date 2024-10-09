@@ -20,7 +20,7 @@ export const Menu:React.FC<IMenu> = ({op1, op2, op3}) => {
             <nav className={style.nav}>
             <Link href={ROUTES.fetch} className={style.p}>{op1}</Link>
             <Link href={ROUTES.axiosPage} className={style.p}>{op2}</Link>   
-            <h1 className={style.p}>{op3}</h1>
+            <Link href={ROUTES.serverPage} className={style.p}>{op3}</Link>
             </nav>
         </>
     )
