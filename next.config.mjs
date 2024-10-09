@@ -9,6 +9,10 @@ const nextConfig = {
                 source: "/",
                 destination: "/home",
             },
+            {
+                source: "/pagina-com-axios",
+                destination: "/axios-page",
+            },
         ]
     }
 };
