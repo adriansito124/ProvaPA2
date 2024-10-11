@@ -7,7 +7,7 @@ import { api } from "@/constants/api"
 
 interface IData {
     name: string;
-    gender: string;
+    ki: string;
     image: string;
 }
 
@@ -36,25 +36,29 @@ const AxiosPage = () => {
 
     const style =
     {
-        main: "min-h-screen w-full bg-black flex-col flex justify-center items-center text-white"
+        main: "min-h-screen w-full bg-slate-900 flex-col flex justify-center items-center items-center text-white ",
+        char: "flex flex-row text-center flex-wrap justify-center mt-10",
+        ok: "flex justify-center flex-col items-center mt-12"
     }
 
     return(
         <>
             <main className={style.main}>
-                <h1>Pagina com use efect axios</h1>
-                <input className="text-black" type="text" value={page} onChange={(e) => setPage(e.target.value)}placeholder="1/6 - Insira a página"></input>
-                {erro && errormessage}
-                <div className="min-h-screen w-full flex-row flex justify-center items-center flex-wrap m-36">
-                    {data.map((item, index) => {
-                        return(
-                            <div>
-                                <h2>{item.name}</h2>
-                                <Image className="h-auto w-[200px]" src={item.image} alt="IMAGEM" width={300} height={300} priority={true}></Image>
-                                <p>{item.gender}</p>
-                            </div>
-                        )
-                    })}
+                <div className={style.ok}>
+                    <h1>Pagina com use efect axios</h1>
+                    <input className="text-black" type="text" value={page} onChange={(e) => setPage(e.target.value)}placeholder="1/6 - Insira a página"></input>
+                    {erro && errormessage}
+                    <div className={style.char}>
+                        {data.map((item, index) => {
+                            return(
+                                <div className="flex justify-center flex-col m-3 bg-slate-700 gap-5 p-5">
+                                    <h2 className="text-2xl">{item.name}</h2>
+                                    <Image className=" h-96 w-full  md:w-flex" content="width=device-width, initial-scale=1.0" src={item.image} width={300} height={300} alt="IMAGEM" priority={true}></Image>
+                                    <p className="text-lg">Ki: {item.ki}</p>
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
             </main>
         </>

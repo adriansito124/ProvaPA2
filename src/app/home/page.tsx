@@ -15,7 +15,7 @@ export default function Fetch() {
 
     useEffect(() => {
         const load = async () => {
-            const res = await fetch("https://dragonball-api.com/api/characters?page=1&limit=58")
+            const res = await fetch("https://dragonball-api.com/api/characters?limit=58")
             const data = await res.json()
             setCharacters(data.items)
         }
@@ -38,7 +38,7 @@ export default function Fetch() {
                 {characters.map((item, index) => {
                     return(
                         <div key={item.id} className="flex justify-center flex-col m-3 bg-slate-700 gap-5 p-5">
-                            <h2 className="text-2xl">{item.name}</h2>
+                            <h2 className="text-2xl ">{item.name}</h2>
                             <Image className=" h-96 w-full  md:w-flex" content="width=device-width, initial-scale=1.0" src={item.image} width={300} height={300} alt="IMAGEM" priority={true}></Image>
                         </div>
                     )
