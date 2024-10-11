@@ -27,16 +27,19 @@ const Serverside = async () => {
         <>
             <main className={style.main}>
                 <div className={style.ok}>
-                    <h1 className="text-3xl font-medium">Characters</h1>
+                    <h1 className="text-3xl font-medium text-yellow-500">Characters</h1>
                     <div className={style.char}>
                         <Suspense fallback={<div>Loading...</div>}>
                             {data.items.map((item, index) => {
                                 return(
-                                    <div key={item.id} className="flex items-center flex-col m-3 bg-slate-700 gap-5 p-5">
-                                        <h2 className="text-2xl">{item.name}</h2>
-                                        <Image className=" h-96 w-full  md:w-flex" content="width=device-width, initial-scale=1.0" src={item.image} width={300} height={300} alt="IMAGEM" priority={true}></Image>
-                                        <Link className="bg-slate-600 px-2 py-1 w-20 text-branco text-lg cursor-pointer border rounded-2xl text-white font-medium hover:scale-105 transition duration-150 ease-in-out" href={`/perso/${item.id}`}>ABRIR</Link>
-                                    </div>
+                                        <div key={item.id} className="bg-slate-700 m-3 gap-5 max-w-lg rounded-lg flex items-center flex-col p-5 hover:bg-slate-600">
+                                            <div className="flex items-center flex-col  gap-5   transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
+                                                <h2 className="text-2xl font-semibold">{item.name}</h2>
+                                                <Image className="object-scale-down h-80 hover:rotate-6 hover:scale-110 transition duration-150 ease-in-out" src={item.image} width={300} height={300} alt="IMAGEM" priority={true}></Image>
+                                                
+                                            </div>
+                                            <Link className="bg-slate-600 px-2 py-1 w-20 text-branco text-lg cursor-pointer border rounded-2xl hover:text-yellow-500 text-white font-medium hover:scale-105 hover:bg-slate-700 transition duration-150 ease-in-out" href={`/perso/${item.id}`}>ABRIR</Link>
+                                        </div>
                                 )
                             })}
                         </Suspense>

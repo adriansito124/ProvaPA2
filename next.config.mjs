@@ -10,11 +10,11 @@ const nextConfig = {
                 destination: "/home",
             },
             {
-                source: "/pagina-com-axios",
+                source: "/segunda-pagina",
                 destination: "/axios-page",
             },
             {
-                source: "/pagina-server",
+                source: "/terceira-pagina",
                 destination: "/server-side",
             },
         ]

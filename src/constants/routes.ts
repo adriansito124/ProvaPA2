@@ -1,5 +1,5 @@
 export enum ROUTES {
     fetch = "/",
-    axiosPage = "/pagina-com-axios",
-    serverPage = "/pagina-server",
+    axiosPage = "/segunda-pagina",
+    serverPage = "/terceira-pagina",
 }
