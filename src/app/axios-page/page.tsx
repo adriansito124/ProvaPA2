@@ -23,12 +23,14 @@ const AxiosPage = () => {
 
     useEffect(() => {
         api.get(`/characters?page=${page}`).then((res) => {
-            setData(res.data.items)
-        }).catch((error) => {
-            if(error.response.status === 404){
-                setErrorMessage("Pagina nao encontrada")
+            if (Number(page)<7) {
+              setData(res.data.items)  
             }
-            setErro(true)
+            else{
+                setErro(true)
+            }
+        }).catch((error) => {
+            setErrorMessage("Pagina nao encontrada")
         })
     }, [page])
 
@@ -41,7 +43,7 @@ const AxiosPage = () => {
         <>
             <main className={style.main}>
                 <h1>Pagina com use efect axios</h1>
-                <input className="text-black" type="text" value={page} onChange={(e) => setPage(e.target.value)}placeholder="1/5 - Insira a página"></input>
+                <input className="text-black" type="text" value={page} onChange={(e) => setPage(e.target.value)}placeholder="1/6 - Insira a página"></input>
                 {erro && errormessage}
                 <div className="min-h-screen w-full flex-row flex justify-center items-center flex-wrap m-36">
                     {data.map((item, index) => {
